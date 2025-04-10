@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YouTube</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
+    <!--svg는 유튜브꺼 그대로 가져옴-->
+<header class="header">
+    <div class="header-left">
+        <button class="menu-button" id="menu-toggle">
+        <svg viewBox="0 0 24 24" fill="white" width="24" height="24">
+            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+        </svg>
+        </button>
+        <div class="logo">
+        <svg viewBox="0 0 90 20" fill="white" height="30">
+            <rect x="0" y="0" width="90" height="20" fill="transparent"></rect>
+            <text x="0" y="15" fill="white" font-size="14" font-family="Arial, sans-serif">
+            YouTube
+            </text>
+        </svg>
+        </div>
+    </div>
+
+    <div class="header-center">
+        <div class="search-bar">
+            <input type="text" placeholder="검색" id="search-input" />
+            <button id="search-button">
+                <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M16.296 16.996a8 8 0 11.707-.708l3.909 3.91-.707.707-3.909-3.909zM18 11a7 7 0 00-14 0 7 7 0 1014 0z"></path></svg>
+            </button>
+        </div>
+        <button class="mic-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M12 3c-1.66 0-3 1.37-3 3.07v5.86c0 1.7 1.34 3.07 3 3.07s3-1.37 3-3.07V6.07C15 4.37 13.66 3 12 3zm6.5 9h-1c0 3.03-2.47 5.5-5.5 5.5S6.5 15.03 6.5 12h-1c0 3.24 2.39 5.93 5.5 6.41V21h2v-2.59c3.11-.48 5.5-3.17 5.5-6.41z"></path></svg>
+        </button>
+    </div>
+
+    <div class="header-right">
+        <button class="icon-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="m13.497 4.898.053.8.694.4C15.596 6.878 16.5 8.334 16.5 10v2.892c0 .997.27 1.975.784 2.83L18.35 17.5H5.649l1.067-1.778c.513-.855.784-1.833.784-2.83V10c0-1.666.904-3.122 2.256-3.902l.694-.4.053-.8c.052-.78.703-1.398 1.497-1.398.794 0 1.445.618 1.497 1.398ZM6 10c0-2.224 1.21-4.165 3.007-5.201C9.11 3.236 10.41 2 12 2c1.59 0 2.89 1.236 2.993 2.799C16.79 5.835 18 7.776 18 10v2.892c0 .725.197 1.436.57 2.058l1.521 2.535c.4.667-.08 1.515-.857 1.515H15c0 .796-.316 1.559-.879 2.121-.562.563-1.325.879-2.121.879s-1.559-.316-2.121-.879C9.316 20.56 9 19.796 9 19H4.766c-.777 0-1.257-.848-.857-1.515L5.43 14.95c.373-.622.57-1.333.57-2.058V10Zm4.5 9c0 .398.158.78.44 1.06.28.282.662.44 1.06.44s.78-.158 1.06-.44c.282-.28.44-.662.44-1.06h-3Z" fill-rule="evenodd"></path></svg>
+        </button>
+
+        <div class="profile">
+            <svg viewBox="0 0 36 36" fill="white" width="32" height="32">
+                <circle cx="18" cy="18" r="18" fill="#666" />
+                <text x="18" y="22" fill="white" font-size="10" font-family="Arial" text-anchor="middle">
+                User
+                </text>
+            </svg>
+        </div>
+    </div>
+</header>
+
+<aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav">
+        <ul>
+        <li class="active">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="M22.146 11.146a.5.5 0 01-.353.854H20v7.5a1.5 1.5 0 01-1.5 1.5H14v-8h-4v8H5.5A1.5 1.5 0 014 19.5V12H2.207a.5.5 0 01-.353-.854L12 1l10.146 10.146Z" fill-rule="evenodd"></path></svg>
+            <span>홈</span>
+        </li>
+        <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="m7.61 15.719.392-.22v-2.24l-.534-.228-.942-.404c-.869-.372-1.4-1.15-1.446-1.974-.047-.823.39-1.642 1.203-2.097h.001L15.13 3.59c1.231-.689 2.785-.27 3.466.833.652 1.058.313 2.452-.879 3.118l-1.327.743-.388.217v2.243l.53.227.942.404c.869.372 1.4 1.15 1.446 1.974.047.823-.39 1.642-1.203 2.097l-.002.001-8.845 4.964-.001.001c-1.231.688-2.784.269-3.465-.834-.652-1.058-.313-2.451.879-3.118l1.327-.742Zm1.993 6.002c-1.905 1.066-4.356.46-5.475-1.355-1.057-1.713-.548-3.89 1.117-5.025a4.14 4.14 0 01.305-.189l1.327-.742-.942-.404a4.055 4.055 0 01-.709-.391c-.963-.666-1.578-1.718-1.644-2.877-.08-1.422.679-2.77 1.968-3.49l8.847-4.966c1.905-1.066 4.356-.46 5.475 1.355 1.057 1.713.548 3.89-1.117 5.025a4.074 4.074 0 01-.305.19l-1.327.742.942.403c.253.109.49.24.709.392.963.666 1.578 1.717 1.644 2.876.08 1.423-.679 2.77-1.968 3.491l-8.847 4.965ZM10 14.567a.25.25 0 00.374.217l4.45-2.567a.25.25 0 000-.433l-4.45-2.567a.25.25 0 00-.374.216v5.134Z" fill-rule="evenodd"></path></svg>
+            <span>쇼츠</span>
+        </li>
+        <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="M4 4.5A1.5 1.5 0 015.5 3h13A1.5 1.5 0 0120 4.5H4Zm16.5 3h-17v11h17v-11ZM3.5 6A1.5 1.5 0 002 7.5v11A1.5 1.5 0 003.5 20h17a1.5 1.5 0 001.5-1.5v-11A1.5 1.5 0 0020.5 6h-17Zm7.257 4.454a.5.5 0 00-.757.43v4.233a.5.5 0 00.757.429L15 13l-4.243-2.546Z" fill-rule="evenodd"></path></svg>
+            <span>구독</span>
+        </li>
+        <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="M3.75 5c-.414 0-.75.336-.75.75s.336.75.75.75h16.5c.414 0 .75-.336.75-.75S20.664 5 20.25 5H3.75Zm0 4c-.414 0-.75.336-.75.75s.336.75.75.75h16.5c.414 0 .75-.336.75-.75S20.664 9 20.25 9H3.75Zm0 4c-.414 0-.75.336-.75.75s.336.75.75.75h8.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-8.5Zm8.5 4c.414 0 .75.336.75.75s-.336.75-.75.75h-8.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h8.5Zm3.498-3.572c-.333-.191-.748.05-.748.434v6.276c0 .384.415.625.748.434L22 17l-6.252-3.572Z" fill-rule="evenodd"></path></svg>
+            <span>재생목록</span>
+        </li>
+        <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="m14.302 6.457-.668-.278L12.87 3.5h-1.737l-.766 2.68-.668.277c-.482.2-.934.463-1.344.778l-.575.44-2.706-.677-.868 1.504 1.938 2.003-.093.716c-.033.255-.05.514-.05.779 0 .264.017.524.05.779l.093.716-1.938 2.003.868 1.504 2.706-.677.575.44c.41.315.862.577 1.344.778l.668.278.766 2.679h1.737l.765-2.68.668-.277c.483-.2.934-.463 1.345-.778l.574-.44 2.706.677.869-1.504-1.938-2.003.092-.716c.033-.255.05-.514.05-.779 0-.264-.017-.524-.05-.779l-.092-.716 1.938-2.003-.869-1.504-2.706.677-.574-.44c-.41-.315-.862-.577-1.345-.778Zm4.436.214Zm-3.86-1.6-.67-2.346c-.123-.429-.516-.725-.962-.725h-2.492c-.446 0-.838.296-.961.725l-.67 2.347c-.605.251-1.17.58-1.682.972l-2.37-.593c-.433-.108-.885.084-1.108.47L2.717 8.08c-.223.386-.163.874.147 1.195l1.698 1.755c-.04.318-.062.642-.062.971 0 .329.021.653.062.97l-1.698 1.756c-.31.32-.37.809-.147 1.195l1.246 2.158c.223.386.675.578 1.109.47l2.369-.593c.512.393 1.077.72 1.681.972l.67 2.347c.124.429.516.725.962.725h2.492c.446 0 .839-.296.961-.725l.67-2.347c.605-.251 1.17-.58 1.682-.972l2.37.593c.433.108.885-.084 1.109-.47l1.245-2.158c.223-.386.163-.874-.147-1.195l-1.698-1.755c.04-.318.062-.642.062-.971 0-.329-.021-.653-.062-.97l1.698-1.756c.31-.32.37-.809.147-1.195L20.038 5.92c-.224-.386-.676-.578-1.11-.47l-2.369.593c-.512-.393-1.077-.72-1.681-.972ZM15.5 12c0 1.933-1.567 3.5-3.5 3.5S8.5 13.933 8.5 12s1.567-3.5 3.5-3.5 3.5 1.567 3.5 3.5ZM14 12c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2Z" fill-rule="evenodd"></path></svg>
+            <span>설정</span>
+        </li>
+        </ul>
+    </nav>
+</aside>
+
+<section class="main-content" id="main-content">
+    <div class="category-scroll">
+        <button>전체</button>
+        <button>실시간</button>
+        <button>음악</button>
+        <button>게임</button>
+        <button>뉴스</button>
+        <button>요리</button>
+        <button>만화/애니</button>
+        <button>기타</button>
+    </div>
+
+    <div class="video-grid">
+        <div class="video-item">
+            <div class="thumbnail">
+                <img src="./source/image/image.png" alt="영상 썸네일" />
+            </div>
+            <div class="video-details">
+                <div class="channel-icon">
+                <img src="./source/icon/image.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">코딩 책 한 권만 읽으면 이렇게 됩니다</h3>
+                <p class="channel-name">코딩애플</p>
+                <p class="video-stats">조회수 37만회 • 1일 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image2.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image2.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">개발자들이 100시간 안에 게임을 만들어 봤습니다</h3>
+                <p class="channel-name">[JCJS games] 웨루</p>
+                <p class="video-stats">조회수 13만회 • 8개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image3.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image3.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">2024년 최신 코딩테스트 - 필수 알고리즘 5주 완성 프로젝트🔥🔥🔥</h3>
+                <p class="channel-name">딩코딩코</p>
+                <p class="video-stats">조회수 5만회 • 4개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image4.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">수학포기자들은 코딩하면 큰일남</h3>
+                <p class="channel-name">딩코딩코</p>
+                <p class="video-stats">조회수 54만회 • 1년 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image5.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image5.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">일본음악에서 꽤 자주 등장하는 형태 </h3>
+                <p class="channel-name">일본음악 작곡 밴콘즈</p>
+                <p class="video-stats">조회수 5.5만회 • 6개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image6.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image6.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">래오 -『계획 이상 有!』 MV (feat. 重音テト)</h3>
+                <p class="channel-name">래오 - ani & music</p>
+                <p class="video-stats">조회수 17만회 • 3개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image7.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image7.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">수학포기자들은 코딩하면 큰일남</h3>
+                <p class="channel-name">너 그런 거 듣니</p>
+                <p class="video-stats">조회수 1.3천회 • 11개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image8.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image8.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">우쿠렐레로 핑거스타일 연주를 하는 미친 장인 등장 ㅋㅋㅋㅋㅋㅋㅋ</h3>
+                <p class="channel-name">Charming Jo 조매력</p>
+                <p class="video-stats">조회수 13만회 • 1개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image9.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image8.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">BEAM ME UP! - AnnoyingBox (Official MV)</h3>
+                <p class="channel-name">Charming Jo 조매력</p>
+                <p class="video-stats">조회수 12만회 • 4개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image10.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image10.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">DECO*27 - モニタリング feat. 初音ミク</h3>
+                <p class="channel-name">DECO*27</p>
+                <p class="video-stats">조회수 5126만회 • 4개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image11.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image11.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">無料音源だけで上手に曲を作るコツ【曲データ配布】</h3>
+                <p class="channel-name">Reo</p>
+                <p class="video-stats">조회수 36만회 • 8개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image12.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image12.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">how to BASS</h3>
+                <p class="channel-name">synthet</p>
+                <p class="video-stats">조회수 181만회 • 6개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image13.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image13.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">【東方】Bad Apple!! ＰＶ【影絵】</h3>
+                <p class="channel-name">kasidid2</p>
+                <p class="video-stats">조회수 1억회 • 15년 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image14.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image14.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">「차가운 상어 아가씨」 한국어 버전 (Cover) ・ PANXI</h3>
+                <p class="channel-name">PANXI</p>
+                <p class="video-stats">조회수 10만회 • 5개월 전</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-item">
+        <div class="thumbnail">
+            <img src="./source/image/image15.png" alt="영상 썸네일" />
+        </div>
+        <div class="video-details">
+            <div class="channel-icon">
+                <img src="./source/icon/image15.png" alt="채널 아이콘" />
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">【Kanaria】BRAIN</h3>
+                <p class="channel-name">Kanaria</p>
+                <p class="video-stats">조회수 1990만회 • 5개월 전</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
